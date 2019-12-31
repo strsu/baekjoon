@@ -11,6 +11,44 @@
 만약 설탕의 무게가 음수가 된다면 -1로 처리하면 된다.	
 */
 
+////////////////////////////////////////Wrong Answer//////////////////////////////////////////////////////////////
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int sugar;
+	int p_3, p_5;	// 3kg, 5kg plastic bag
+	int leftover;	// leftover sugar
+
+	cin >> sugar;
+
+	if ((sugar % 5) == 0) {
+		cout << sugar / 5;
+	}
+	else {
+		p_5 = sugar / 5;			// Share of whole divided by five.
+		leftover = sugar % 5;		// Remainer of whole divided by five.
+		p_3 = leftover / 3;			// Share of remainer divided by three.
+		leftover = leftover % 3;	// Remainer of remainer divided by three.
+		if (leftover == 0) {		// If sugar's weight suit multiple of three and five
+			cout << p_5 + p_3;
+		}
+		else {
+			if ((sugar % 3) == 0) {	// if sugar's weight doesn't suit multiple of three and five but suit multiple of three.
+				cout << sugar / 3;
+			}
+			else {					// No one suits multiple three and five.
+				cout << -1;
+			}
+		}
+	}
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////Righr Answer//////////////////////////////////////////////////
+
 #include <iostream>
 using namespace std;
 
